@@ -65,11 +65,71 @@
             <p>Full portfolio coming October '25</p>
           </div>
         </div>
-        <div class="item item-desktop"> ... </div>
-        <div class="item item-desktop"> ... </div>
-        <div class="item item-desktop"> ... </div>
-        <div class="item item-desktop"> ... </div>
-        <div class="item item-desktop"> ... </div>
+        <div class="item item-desktop">   <div class="studio-info">
+            <span>Propagande</span><span>Studio</span>
+          </div>
+          <p>(P.25)</p>
+          <div class="studio-info">
+            <p>Interactive And Creative Development studio</p>
+          </div>
+          <div class="studio-info">
+            <p>Building refined experiences with precision, creativity and impact</p>
+          </div>
+          <div class="studio-info">
+            <p>Full portfolio coming October '25</p>
+          </div> </div>
+        <div class="item item-desktop">   <div class="studio-info">
+            <span>Propagande</span><span>Studio</span>
+          </div>
+          <p>(P.25)</p>
+          <div class="studio-info">
+            <p>Interactive And Creative Development studio</p>
+          </div>
+          <div class="studio-info">
+            <p>Building refined experiences with precision, creativity and impact</p>
+          </div>
+          <div class="studio-info">
+            <p>Full portfolio coming October '25</p>
+          </div> </div>
+        <div class="item item-desktop">   <div class="studio-info">
+            <span>Propagande</span><span>Studio</span>
+          </div>
+          <p>(P.25)</p>
+          <div class="studio-info">
+            <p>Interactive And Creative Development studio</p>
+          </div>
+          <div class="studio-info">
+            <p>Building refined experiences with precision, creativity and impact</p>
+          </div>
+          <div class="studio-info">
+            <p>Full portfolio coming October '25</p>
+          </div> </div>
+        <div class="item item-desktop">   <div class="studio-info">
+            <span>Propagande</span><span>Studio</span>
+          </div>
+          <p>(P.25)</p>
+          <div class="studio-info">
+            <p>Interactive And Creative Development studio</p>
+          </div>
+          <div class="studio-info">
+            <p>Building refined experiences with precision, creativity and impact</p>
+          </div>
+          <div class="studio-info">
+            <p>Full portfolio coming October '25</p>
+          </div> </div>
+        <div class="item item-desktop">   <div class="studio-info">
+            <span>Propagande</span><span>Studio</span>
+          </div>
+          <p>(P.25)</p>
+          <div class="studio-info">
+            <p>Interactive And Creative Development studio</p>
+          </div>
+          <div class="studio-info">
+            <p>Building refined experiences with precision, creativity and impact</p>
+          </div>
+          <div class="studio-info">
+            <p>Full portfolio coming October '25</p>
+          </div> </div>
       </div>
 
       <!-- Mobile Info Section -->
@@ -130,37 +190,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ModifiersPlugin.min.js"></script>
-
-  <!-- Main Script -->
-  <script>
-    // Animate title on page load
-    window.addEventListener("load", () => {
-      gsap.to(".w-name h1 span", {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power3.out",
-        stagger: 0.1
-      });
-    });
-
-    // Infinite vertical scroll animation for info section
-    const info = document.querySelector(".info");
-    const items = gsap.utils.toArray(".item");
-
-    let scrollAnim = gsap.to(items, {
-      yPercent: -100,
-      ease: "none",
-      duration: 10,
-      repeat: -1,
-      modifiers: {
-        yPercent: gsap.utils.wrap(-100, 0)
-      }
-    });
-
-    // Pause animation on hover
-    info.addEventListener("mouseenter", () => scrollAnim.pause());
-    info.addEventListener("mouseleave", () => scrollAnim.resume());
-  </script>
+  <script src="./script/script.js"></script>
 </body>
 </html>
