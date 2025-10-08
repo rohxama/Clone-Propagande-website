@@ -9,20 +9,24 @@
       });
     });
 
-    // Infinite vertical scroll animation for info section
-    const info = document.querySelector(".info");
-    const items = gsap.utils.toArray(".item");
+    // Vertical scrolling
+const info = document.querySelector(".info");
+    const inner = info.querySelector(".inner");
+    inner.innerHTML += inner.innerHTML;
 
-    let scrollAnim = gsap.to(items, {
-      yPercent: -100,
-      ease: "none",
-      duration: 10,
+    const getDistance = () => inner.scrollHeight / 2;
+
+    const scrollAnim = gsap.to(inner, {
+      y: () => -getDistance(),
+      duration: 120, 
       repeat: -1,
-      modifiers: {
-        yPercent: gsap.utils.wrap(-100, 0)
-      }
     });
 
-    // Pause animation on hover
+    // pause on hover
     info.addEventListener("mouseenter", () => scrollAnim.pause());
-    info.addEventListener("mouseleave", () => scrollAnim.resume());
+    info.addEventListener("mouseleave", () => scrollAnim.play());
+
+    // responsive recalculation
+    window.addEventListener("resize", () => {
+      scrollAnim.invalidate(); 
+    });
