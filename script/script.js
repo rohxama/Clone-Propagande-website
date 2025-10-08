@@ -1,32 +1,41 @@
- // Animate title on page load
-    window.addEventListener("load", () => {
-      gsap.to(".w-name h1 span", {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power3.out",
-        stagger: 0.1
-      });
-    });
+// Animate title on page load
+window.addEventListener("load", () => {
+  gsap.to(".w-name h1 span", {
+    y: 0,
+    opacity: 1,
+    duration: 0.6,
+    ease: "power3.out",
+    stagger: 0.1,
+  });
+});
 
-    // Vertical scrolling
+// Continuous vertical scrolling for
 const info = document.querySelector(".info");
-    const inner = info.querySelector(".inner");
-    inner.innerHTML += inner.innerHTML;
+const items = gsap.utils.toArray(".item");
 
-    const getDistance = () => inner.scrollHeight / 2;
+info.appendChild(items[0].cloneNode(true));
 
-    const scrollAnim = gsap.to(inner, {
-      y: () => -getDistance(),
-      duration: 120, 
-      repeat: -1,
-    });
+const scrollAnim = gsap.to(items, {
+  yPercent: -100 * items.length,
+  ease: "none",
+  duration: 80,
+  repeat: -1,
+  modifiers: {
+    yPercent: gsap.utils.wrap(-100 * items.length, 0),
+  },
+});
 
-    // pause on hover
-    info.addEventListener("mouseenter", () => scrollAnim.pause());
-    info.addEventListener("mouseleave", () => scrollAnim.play());
+info.addEventListener("mouseenter", () => scrollAnim.pause());
+info.addEventListener("mouseleave", () => scrollAnim.play());
 
-    // responsive recalculation
-    window.addEventListener("resize", () => {
-      scrollAnim.invalidate(); 
-    });
+info.addEventListener("scroll", () => {
+  if (info.scrollTop >= info.scrollHeight - info.clientHeight) {
+    info.scrollTop = 1;
+  } else if (info.scrollTop <= 0) {
+    info.scrollTop = info.scrollHeight - info.clientHeight - 1;
+  }
+});
+
+window.addEventListener("resize", () => {
+  scrollAnim.invalidate();
+});

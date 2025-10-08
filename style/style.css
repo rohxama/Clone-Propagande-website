@@ -295,7 +295,7 @@ body {
         grid-column: 10 / span 3;
         gap: 5rem;
         padding-top: 5rem;
-        max-width: 300px;
+        max-width: 305px;
     }
 
     #main .info .item > .studio-info {
@@ -324,6 +324,16 @@ body {
         gap: 2.5rem;
         align-items: flex-start;
     }
+
+    .info {
+  height: 100vh; 
+  overflow-y: scroll;
+  position: relative;
+}
+
+.info::-webkit-scrollbar {
+  display: none;
+}
 
     
 }
